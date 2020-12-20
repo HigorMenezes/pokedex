@@ -5,12 +5,13 @@ const GlobalStyles = createGlobalStyle`
   :root {
     --sidebar-width: 280px;
     --header-bar-height: 60px;
-  }
 
-  *, 
-  *::after, 
-  *::before {
-    box-sizing: border-box;
+    --transition-duration-time: 0.2s;
+
+    --outline-style: thin dashed #0277bd;
+
+    --heart-color: rgb(229, 57, 53);
+    --heart-color-hover: rgba(229, 57, 53, 0.2);
   }
 
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -60,6 +61,18 @@ const GlobalStyles = createGlobalStyle`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+
+  *, 
+  *::after, 
+  *::before {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Noto Sans JP', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 `;
 
