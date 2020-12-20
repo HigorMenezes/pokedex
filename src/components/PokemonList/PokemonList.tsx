@@ -9,14 +9,14 @@ import { Root } from "./styled";
 import { Pokemon } from "../../@types/Pokemon";
 
 function PokemonList(): JSX.Element {
+  const [loading, setLoading] = useState(true);
   const [pokemons, setPokemons] = useState<Pokemon>();
 
   useEffect(() => {
     pokedexApi
-      .get("/pokemon", { params: { limit: 1, offset: 25 } })
-      .then(({ data }) => {
-        setPokemons(data);
-      });
+      .get("/pokemon")
+      .then(({ data }) => setPokemons(data))
+      .finally(() => setLoading(false));
   }, []);
 
   return (

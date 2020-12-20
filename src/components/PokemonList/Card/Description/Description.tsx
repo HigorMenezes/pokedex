@@ -11,13 +11,15 @@ interface DescriptionProps {
 }
 
 function Description({ species }: DescriptionProps): JSX.Element {
+  const [loading, setLoading] = useState(true);
   const [speciesResult, setSpeciesResult] = useState<SpeciesDetail>();
 
   useEffect(() => {
     if (species?.url) {
-      pokedexApi.get(species?.url).then(({ data }) => {
-        setSpeciesResult(data);
-      });
+      pokedexApi
+        .get(species?.url)
+        .then(({ data }) => setSpeciesResult(data))
+        .finally(() => setLoading(false));
     }
   }, [species]);
 
@@ -27,7 +29,7 @@ function Description({ species }: DescriptionProps): JSX.Element {
 
   return (
     <Root>
-      <Text>{flavorText?.flavor_text ?? ""}</Text>
+      <Text loading={loading}>{flavorText?.flavor_text ?? ""}</Text>
     </Root>
   );
 }

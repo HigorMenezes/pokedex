@@ -2,12 +2,13 @@ import { Root, Title } from "./styled";
 
 interface HeaderProps {
   name: string;
+  loading: boolean;
 }
 
-function Header({ name }: HeaderProps): JSX.Element {
+function Header({ name, loading }: HeaderProps): JSX.Element {
   return (
     <Root>
-      <Title>{name}</Title>
+      <Title loading={loading}>{name}</Title>
     </Root>
   );
 }

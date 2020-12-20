@@ -14,9 +14,7 @@ export const Root = styled.button`
 
   transition: background-color var(--transition-duration-time);
 
-  &:hover,
-  &:active,
-  &:focus {
+  &:hover {
     background-color: var(--heart-color-hover);
   }
 

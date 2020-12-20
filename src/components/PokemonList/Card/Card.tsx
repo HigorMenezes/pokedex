@@ -16,20 +16,22 @@ interface CardProps {
 }
 
 function Card({ pokemon }: CardProps): JSX.Element {
+  const [loading, setLoading] = useState(true);
   const [pokemonDetails, setPokemonDetails] = useState<PokemonDetail>();
 
   useEffect(() => {
     if (pokemon.url) {
-      pokedexApi.get(pokemon.url).then(({ data }) => {
-        setPokemonDetails(data);
-      });
+      pokedexApi
+        .get(pokemon.url)
+        .then(({ data }) => setPokemonDetails(data))
+        .finally(() => setLoading(false));
     }
   }, [pokemon]);
 
   return (
     <Root>
       <Picture sprites={pokemonDetails?.sprites} />
-      <Header name={pokemonDetails?.name ?? ""} />
+      <Header name={pokemonDetails?.name ?? ""} loading={loading} />
       <Description species={pokemonDetails?.species} />
       <Footer />
     </Root>
