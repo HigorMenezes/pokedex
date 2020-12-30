@@ -2,10 +2,18 @@ import { Root, UnFavoriteIcon, FavoriteIcon } from "./styled";
 
 interface FavoriteButtonProps {
   isFavorite: boolean;
+  onClick: () => void;
 }
 
-function FavoriteButton({ isFavorite }: FavoriteButtonProps): JSX.Element {
-  return <Root>{isFavorite ? <FavoriteIcon /> : <UnFavoriteIcon />}</Root>;
+function FavoriteButton({
+  isFavorite,
+  onClick,
+}: FavoriteButtonProps): JSX.Element {
+  return (
+    <Root onClick={onClick}>
+      {isFavorite ? <FavoriteIcon /> : <UnFavoriteIcon />}
+    </Root>
+  );
 }
 
 export default FavoriteButton;

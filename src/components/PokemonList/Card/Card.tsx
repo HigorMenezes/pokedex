@@ -33,7 +33,7 @@ function Card({ pokemon }: CardProps): JSX.Element {
       <Picture sprites={pokemonDetails?.sprites} />
       <Header name={pokemonDetails?.name ?? ""} loading={loading} />
       <Description species={pokemonDetails?.species} />
-      <Footer />
+      <Footer name={pokemonDetails?.name ?? ""} />
     </Root>
   );
 }
