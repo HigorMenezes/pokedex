@@ -1,11 +1,11 @@
-import { useCallback } from "react";
+import { useCallback, memo } from "react";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 
 import { RootState } from "../../../../store";
 import {
   toggleFavoritePokemon,
-  FavoritePokemon,
-} from "../../../../store/favoritePokemon";
+  FavoritePokemons,
+} from "../../../../store/slices/favoritePokemons";
 
 import FavoriteButton from "./FavoriteButton";
 
@@ -17,8 +17,8 @@ interface FooterProps {
 
 function Footer({ name }: FooterProps): JSX.Element {
   const dispatch = useDispatch();
-  const favoritePokemons = useSelector<RootState, FavoritePokemon>(
-    ({ favoritePokemon }) => favoritePokemon,
+  const favoritePokemons = useSelector<RootState, FavoritePokemons>(
+    ({ favoritePokemons }) => favoritePokemons,
     shallowEqual,
   );
 
@@ -40,4 +40,4 @@ Footer.defaultProps = {
   isFavorite: false,
 } as Partial<FooterProps>;
 
-export default Footer;
+export default memo(Footer);

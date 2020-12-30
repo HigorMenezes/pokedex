@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Root, UnFavoriteIcon, FavoriteIcon } from "./styled";
 
 interface FavoriteButtonProps {
@@ -16,4 +17,4 @@ function FavoriteButton({
   );
 }
 
-export default FavoriteButton;
+export default memo(FavoriteButton);

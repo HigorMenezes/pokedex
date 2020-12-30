@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 
 import Picture from "./Picture";
 import Header from "./Header";
@@ -38,4 +38,4 @@ function Card({ pokemon }: CardProps): JSX.Element {
   );
 }
 
-export default Card;
+export default memo(Card);

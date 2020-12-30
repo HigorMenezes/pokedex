@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Root, PokeballPlaceholder, Sprite } from "./styled";
 
 import { Sprites } from "../../../../@types/Pokemon";
@@ -7,6 +8,8 @@ interface PictureProps {
 }
 
 function Picture({ sprites }: PictureProps): JSX.Element {
+  console.log("ENTROU");
+
   return (
     <Root>
       <PokeballPlaceholder />
@@ -15,4 +18,4 @@ function Picture({ sprites }: PictureProps): JSX.Element {
   );
 }
 
-export default Picture;
+export default memo(Picture);

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Root, Title } from "./styled";
 
 interface HeaderProps {
@@ -13,4 +14,4 @@ function Header({ name, loading }: HeaderProps): JSX.Element {
   );
 }
 
-export default Header;
+export default memo(Header);

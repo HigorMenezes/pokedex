@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Sidebar, HeaderBar, Main } from "./styled";
 
 interface LayoutProps {
@@ -14,4 +15,4 @@ function Layout({ children }: LayoutProps): JSX.Element {
   );
 }
 
-export default Layout;
+export default memo(Layout);

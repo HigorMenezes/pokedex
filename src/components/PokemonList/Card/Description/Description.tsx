@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 
 import pokedexApi from "../../../../services/pokedexApi";
 
@@ -34,4 +34,4 @@ function Description({ species }: DescriptionProps): JSX.Element {
   );
 }
 
-export default Description;
+export default memo(Description);

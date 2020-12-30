@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export type FavoritePokemon = string[];
+export type FavoritePokemons = string[];
 
-const initialState: FavoritePokemon = [];
+const initialState: FavoritePokemons = [];
 
-const favoritePokemonSlice = createSlice({
-  name: "favoritePokemon",
+const favoritePokemonsSlice = createSlice({
+  name: "favoritePokemons",
   initialState: initialState,
   reducers: {
     toggleFavoritePokemon: (state, action: PayloadAction<string>) => {
@@ -20,6 +20,7 @@ const favoritePokemonSlice = createSlice({
   },
 });
 
-export const { toggleFavoritePokemon } = favoritePokemonSlice.actions;
+export const { reducer } = favoritePokemonsSlice;
+export const { toggleFavoritePokemon } = favoritePokemonsSlice.actions;
 
-export default favoritePokemonSlice.reducer;
+export default favoritePokemonsSlice;
