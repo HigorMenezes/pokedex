@@ -2,12 +2,20 @@ import FavoriteButton from "./FavoriteButton";
 
 import { Root } from "./styled";
 
-function Footer(): JSX.Element {
+interface FooterProps {
+  isFavorite: boolean;
+}
+
+function Footer({ isFavorite }: FooterProps): JSX.Element {
   return (
     <Root>
-      <FavoriteButton />
+      <FavoriteButton isFavorite={isFavorite} />
     </Root>
   );
 }
+
+Footer.defaultProps = {
+  isFavorite: false,
+} as Partial<FooterProps>;
 
 export default Footer;
